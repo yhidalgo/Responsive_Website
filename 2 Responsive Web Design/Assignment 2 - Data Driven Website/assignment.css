@@ -1,4 +1,11 @@
 /* put css code here */
 .my-css-category{
-   color:pink;
+   color:black;
+}
+figure{
+   border: 2px solid black;
+   text-align: center;
+}
+.my-css-categoryThumbnail{
+   width: 100%;
 }
