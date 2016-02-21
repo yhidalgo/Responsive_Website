@@ -29,8 +29,8 @@
             </div> <!-- End of collapsed navbar -->
             <div class="collapse navbar-collapse" id="myNavbar"> <!-- Start un-collapsed navbar -->
                <ul class="nav navbar-nav pull-right">
-                  <li class="my-js-navigationTab active"><a href="#" id="my-js-categoryTab">Categories</a></li>
-                  <li class="my-js-navigationTab"><a href="#" id="my-js-animalsTab">Animals</a></li>
+                  <li class="my-js-navigationTab active" id="my-js-categoryTab"><a href="#">Categories</a></li>
+                  <li class="my-js-navigationTab" id="my-js-animalsTab"><a href="#">Animals</a></li>
                </ul>
             </div> <!-- End un-collapsed navbar -->
          </div>
@@ -54,12 +54,12 @@
    </div>
    <div class="row">
       {{#each category}}
-      <div class="col-xs-12 col-md-6 col-lg-4 my-css-category">
-         <h2 class="my-js-category" data-id="{{@index}}">{{name}}</h2>
+      <div class="col-xs-12 col-md-6 col-lg-4 my-css-category my-js-category" data-id="{{@index}}">
+         <h2>{{name}}</h2>
          <p>Number of animals in this category: {{animals.length}}</p>
          {{#if animals.0.image1}}
             <figure>
-               <img class="my-css-categoryThumbnail" src="{{animals.0.image1}}" alt="Image of a {{animals.0.name}}, which belongs to the category of {{name}}."/>
+               <img class="my-css-thumbnail" src="{{animals.0.image1}}" alt="Image of a {{animals.0.name}}, which belongs to the category of {{name}}."/>
                <figurecaption>Image of a {{animals.0.name}}, which belongs to the category of {{name}}.</figurecaption>
             </figure>
          {{/if}}
@@ -68,9 +68,30 @@
    </div>
 </script>
 <!-- End of category template -->
-
 <!-- Start of animals template -->
-
+<script type="text/x-handlebars-template" id="animalsTemplate">
+   <div class="row">
+      <h1>Animals in the XXXX category</h1>
+   <div>
+   <div class="row">
+      <ol class="breadcrumb">
+         <li><a href="#" class="active">XXX</a></li>
+      </ol>
+   <div>
+   <div class="row">
+      {{#each animals}}
+         <div class="col-xs-12 col-md-6 col-lg-4 my-css-animal my-js-animal" data-id="{{@index}}">
+            <h2>{{name}}</h2>
+            <p>{{description}}</p>
+            <figure>
+               <img class="my-css-thumbnail" src="{{image1}}" alt="Image of a {{name}}, which belongs to the category of XXX"/>
+               <figurecaption>Image of a {{name}}, which belongs to the category of XXX
+               </figurecaption>
+            </figure>
+         </div>
+      {{/each}}
+   </div>
+</script>
 <!-- End of animals template -->
 </body>
 </html>
