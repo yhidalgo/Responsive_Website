@@ -82,7 +82,10 @@
       {{#each animals}}
          <div class="col-xs-12 col-md-6 col-lg-4 my-css-animal my-js-animal" data-id="{{@index}}">
             <h2>{{name}}</h2>
-            <p>{{description}}</p>
+            <div class="collapsed-description-box">
+               <p>{{description}}</p>
+               <p class="read-more"><a href="#" class="button"><button class="my-cs-roundButton">Read More</button></a></p>
+            </div>
             <figure>
                <img class="my-css-thumbnail" src="{{image1}}" alt="Image of a {{name}}, which belongs to the category of XXX"/>
                <figurecaption>Image of a {{name}}, which belongs to the category of XXX
@@ -93,5 +96,9 @@
    </div>
 </script>
 <!-- End of animals template -->
+
+<!-- 
+<scpript type="text/javascript">animals_data.category[{{@../index}}].name</script>
+ -->
 </body>
 </html>
