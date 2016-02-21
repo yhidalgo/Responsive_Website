@@ -1,1 +1,5 @@
-// put your javascript code here
+
+var categoryTemplate, animalsTemplate;
+
+
+
