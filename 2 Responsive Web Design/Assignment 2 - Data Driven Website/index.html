@@ -71,11 +71,11 @@
 <!-- Start of animals template -->
 <script type="text/x-handlebars-template" id="animalsTemplate">
    <div class="row">
-      <h1>Animals in the XXXX category</h1>
+      <h1>Animals in the {{name}} category</h1>
    <div>
    <div class="row">
       <ol class="breadcrumb">
-         <li><a href="#" class="active">XXX</a></li>
+         <li><a href="#" class="active">{{name}}</a></li>
       </ol>
    <div>
    <div class="row">
@@ -87,8 +87,8 @@
                <p class="read-more"><a href="#" class="button"><button class="my-cs-roundButton">Read More</button></a></p>
             </div>
             <figure>
-               <img class="my-css-thumbnail" src="{{image1}}" alt="Image of a {{name}}, which belongs to the category of XXX"/>
-               <figurecaption>Image of a {{name}}, which belongs to the category of XXX
+               <img class="my-css-thumbnail" src="{{image1}}" alt="Image of a {{name}}, which belongs to the category of {{../name}}"/>
+               <figurecaption>Image of a {{name}}, which belongs to the category of {{../name}}
                </figurecaption>
             </figure>
          </div>
@@ -96,9 +96,12 @@
    </div>
 </script>
 <!-- End of animals template -->
-
+<!-- Start of detailed animal template -->
+<script type="text/x-handlebars-template" id="datailedAnimalTemplate">
+</script>
+<!-- End of detailed animal template -->
 <!-- 
-<scpript type="text/javascript">animals_data.category[{{@../index}}].name</script>
+
  -->
 </body>
 </html>
