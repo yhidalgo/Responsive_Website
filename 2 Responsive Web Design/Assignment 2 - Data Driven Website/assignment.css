@@ -39,3 +39,7 @@ figure{
    height:25px;
    background:white;
 }
+
+.breadcrumb > li + li:before {
+    content: "\BB\3E"
+}

@@ -31,6 +31,7 @@
                <ul class="nav navbar-nav pull-right">
                   <li class="my-js-navigationTab active" id="my-js-categoryTab"><a href="#">Categories</a></li>
                   <li class="my-js-navigationTab" id="my-js-animalsTab"><a href="#">Animals</a></li>
+                  <li class="my-js-navigationTab" id="my-js-detailedAnimalTab"><a href="#">Details</a></li>
                </ul>
             </div> <!-- End un-collapsed navbar -->
          </div>
@@ -48,11 +49,6 @@
       <h1> All Categories </h1>
    </div>
    <div class="row">
-      <ol class="breadcrumb">
-         <li><a href="#" class="active">Categories</a></li>
-      </ol>
-   </div>
-   <div class="row">
       {{#each category}}
       <div class="col-xs-12 col-md-6 col-lg-4 my-css-category my-js-category" data-id="{{@index}}">
          <h2>{{name}}</h2>
@@ -68,15 +64,18 @@
    </div>
 </script>
 <!-- End of category template -->
+
+
 <!-- Start of animals template -->
 <script type="text/x-handlebars-template" id="animalsTemplate">
    <div class="row">
-      <h1>Animals in the {{name}} category</h1>
+      <ol class="breadcrumb">
+         <li class="my-js-allCategoriesBreadcrumb"><a href="#"  class="my-js-allCategoriesBreadcrumb">All categories</a></li>
+         <li>{{name}}</li>
+      </ol>
    <div>
    <div class="row">
-      <ol class="breadcrumb">
-         <li><a href="#" class="active">{{name}}</a></li>
-      </ol>
+      <h1>Animals in the {{name}} category</h1>
    <div>
    <div class="row">
       {{#each animals}}
@@ -96,8 +95,56 @@
    </div>
 </script>
 <!-- End of animals template -->
+
+
 <!-- Start of detailed animal template -->
-<script type="text/x-handlebars-template" id="datailedAnimalTemplate">
+<script type="text/x-handlebars-template" id="detailedAnimalTemplate">
+   <div></div>
+   
+   <div class="row">
+      
+      <ol class="breadcrumb">
+         <li class="my-js-allCategoriesBreadcrumb"><a href="#"  class="my-js-allCategoriesBreadcrumb">All categories</a></li>
+         <li class="my-js-categoryBreadcrumb">
+            <a href="#" class="my-js-categoryBreadcrumb"><span class="my-js-currentCategory"></span></a>
+         </li>
+         <li>{{name}}</li>
+      </ol>
+   
+   </div>
+   <div class="row">
+      <h1>Details about {{name}}</h1>
+   </div>
+   <div class="row">
+      <div class="col-xs-2 col-md-2 col-lg-1">
+         <p>Name:</p>
+      </div>
+      <div class="col-xs-10 col-md-10 col-lg-11">
+         <h4>{{name}}</h4>
+      </div>
+      <div class="col-xs-2 col-md-2 col-lg-1">
+         <p>Description:</p>
+      </div>
+      <div class="col-xs-10 col-md-10 col-lg-11">
+         <p>{{description}}</p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12">
+         <figure>
+            <img class="my-css-thumbnail" src="{{image1}}" alt="Image of a {{name}}"/>
+            <figurecaption>Image of a {{name}}, which belongs to the category of <span class="my-js-currentCategory"></span>
+            </figurecaption>
+         </figure>
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-12">
+         <figure>
+            <img class="my-css-thumbnail" src="{{image2}}" alt="Another image of a {{name}}"/>
+            <figurecaption>Another image of a {{name}}, which belongs to the category of <span class="my-js-currentCategory"></span>
+            </figurecaption>
+         </figure>
+      </div>
+   </div>
 </script>
 <!-- End of detailed animal template -->
 <!-- 
