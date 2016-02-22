@@ -3,7 +3,7 @@ var categoryTemplate, animalsTemplate, detailedAnimalTemplate;
 
 var currentCategory = animals_data.category[0];
 var currentAnimal = currentCategory.animals[0];
-var currentAnimalCategory = currentCategory.name;
+var currentAnimalCategory = currentCategory; //Necessary for the breadcrumbs navigation
 
 function showTemplate(template, data) {
    var html = template(data);
@@ -30,28 +30,30 @@ $(document).ready(function(){
       showTemplate(detailedAnimalTemplate,currentAnimal);
       $(".my-js-navigationTab").removeClass("active");
       $("#my-js-detailedAnimalTab").addClass("active");
-      $(".my-js-currentCategory").html(currentAnimalCategory);
+      $(".my-js-currentCategory").html(currentAnimalCategory.name);
       
       $(".my-js-categoryBreadcrumb").click(function() {
-         viewAnimals(currentCategory);
+         currentCategory = currentAnimalCategory;
+         viewAnimals(currentAnimalCategory);
       });
       $(".my-js-allCategoriesBreadcrumb").click(function () {
          $("#my-js-categoryTab").click();
       });
    }
+   
    $("#my-js-detailedAnimalTab").click(function(){
       viewDetailedAnimal(currentAnimal);
    });
    
    
-   function viewAnimals(currentCategory){
-      showTemplate(animalsTemplate,currentCategory);
+   function viewAnimals(category){
+      showTemplate(animalsTemplate,category);
       $(".my-js-navigationTab").removeClass("active");
       $("#my-js-animalsTab").addClass("active");
       $(".my-js-animal").click(function () {
          var currentAnimalIndex = $(this).data("id");
          currentAnimal = currentCategory.animals[currentAnimalIndex];
-         currentAnimalCategory = currentCategory.name;
+         currentAnimalCategory = currentCategory;
          viewDetailedAnimal(currentAnimal);
       });
       $(".my-js-allCategoriesBreadcrumb").click(function () {
