@@ -3,6 +3,7 @@ var categoryTemplate, animalsTemplate, detailedAnimalTemplate;
 
 var currentCategory = animals_data.category[0];
 var currentAnimal = currentCategory.animals[0];
+var currentAnimalCategory = currentCategory.name;
 
 function showTemplate(template, data) {
    var html = template(data);
@@ -10,6 +11,17 @@ function showTemplate(template, data) {
 }
 
 $(document).ready(function(){
+   Handlebars.registerHelper('toLowerCase', function(str) {
+      return str.toLowerCase();
+   });
+   Handlebars.registerHelper('ifRequiresN', function(word) {
+  if(word[0] === 'a' || word[0] === 'A') {
+    return 'n';
+  } else {
+      return '';
+  }
+});
+   
    categoryTemplate = Handlebars.compile($("#categoryTemplate").html());
    animalsTemplate = Handlebars.compile($("#animalsTemplate").html());
    detailedAnimalTemplate = Handlebars.compile($("#detailedAnimalTemplate").html());
@@ -18,11 +30,19 @@ $(document).ready(function(){
       showTemplate(detailedAnimalTemplate,currentAnimal);
       $(".my-js-navigationTab").removeClass("active");
       $("#my-js-detailedAnimalTab").addClass("active");
-      $(".my-js-currentCategory").html(currentCategory.name);
+      $(".my-js-currentCategory").html(currentAnimalCategory);
+      
+      $(".my-js-categoryBreadcrumb").click(function() {
+         viewAnimals(currentCategory);
+      });
+      $(".my-js-allCategoriesBreadcrumb").click(function () {
+         $("#my-js-categoryTab").click();
+      });
    }
    $("#my-js-detailedAnimalTab").click(function(){
       viewDetailedAnimal(currentAnimal);
    });
+   
    
    function viewAnimals(currentCategory){
       showTemplate(animalsTemplate,currentCategory);
@@ -31,16 +51,17 @@ $(document).ready(function(){
       $(".my-js-animal").click(function () {
          var currentAnimalIndex = $(this).data("id");
          currentAnimal = currentCategory.animals[currentAnimalIndex];
+         currentAnimalCategory = currentCategory.name;
          viewDetailedAnimal(currentAnimal);
+      });
+      $(".my-js-allCategoriesBreadcrumb").click(function () {
+         $("#my-js-categoryTab").click();
       });
    };
    $("#my-js-animalsTab").click(function() {
       viewAnimals(currentCategory);
    });
-   $(".my-js-categoryBreadcrumb").click(function() {
-      alert("Hi");
-      viewAnimals(currentCategory);
-   });
+   
    
    $("#my-js-categoryTab").click(function () {
       showTemplate(categoryTemplate,animals_data);
@@ -53,10 +74,6 @@ $(document).ready(function(){
          currentCategory = animals_data.category[currentCategoryIndex];
          viewAnimals(currentCategory);
       });
-   });
-   $(".my-js-allCategoriesBreadcrumb").click(function () {
-      alert("Hi");
-      $("#my-js-categoryTab").click();
    });
    
    $("#my-js-categoryTab").click();
