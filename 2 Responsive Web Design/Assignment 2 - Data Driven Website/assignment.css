@@ -51,7 +51,9 @@ span.lowercase {
 }
 
 
-
+body{
+   padding-top: 45px;
+}
 
 
 /* Start format the logo at the top, before the navbar */

@@ -39,6 +39,14 @@ $(document).ready(function(){
       $(".my-js-allCategoriesBreadcrumb").click(function () {
          $("#my-js-categoryTab").click();
       });
+      
+      /* Smooth scrolling */
+      $('a').click(function(){
+         $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+         }, 3000);
+         return false;
+      });
    }
    
    $("#my-js-detailedAnimalTab").click(function(){
@@ -96,7 +104,7 @@ $(document).ready(function(){
    $.cookiesDirective({
       explicitConsent: false, // false allows implied consent; default is true
       position: 'bottom', // top or bottom of viewport; default is 'top'
-      duration: 15, // display time in seconds; default is 10
+      duration: 5, // display time in seconds; default is 10
       limit: 0, // limit disclosure appearances, 0 is forever; default is 0
       message: null, // customize the disclosure message; default is null             //TODO
       cookieScripts: null, // disclose cookie settings scripts; default is null       //TODO

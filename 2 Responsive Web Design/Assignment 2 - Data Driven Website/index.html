@@ -21,7 +21,7 @@
 <body>
 <div class="container">
    <div class="js-navigationBar">
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top nav-justified" role="navigation">
          <div class="container-fluid">
             <div class="navbar-header"> <!-- Start of collapsed navbar -->
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
@@ -115,7 +115,7 @@
          <li class="my-js-categoryBreadcrumb">
             <a href="#"><span class="my-js-currentCategory"></span></a>
          </li>
-         <li class="active">{{name}}</li>
+         <li id="my-js-animalDetailBreadcrumb" class="active"><a href="#myAnchor" rel="" id="anchor1" class="anchorLink">{{name}}</a></li>
       </ol>
    
    </div>
@@ -144,6 +144,7 @@
             </figurecaption>
          </figure>
       </div>
+      <a name="myAnchor" id="myAnchor"><strong>Where i want to go</strong></a>
       <div class="col-xs-12 col-md-12 col-lg-12">
          <figure>
             <img class="my-css-thumbnail" src="{{image2}}" alt="Another image of a{{ifRequiresN name}} {{toLowerCase name}}"/>
