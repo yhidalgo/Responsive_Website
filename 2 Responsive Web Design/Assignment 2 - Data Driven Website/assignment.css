@@ -61,15 +61,19 @@ img.my-css-logo {
     width: 25%;
     margin: 0px;
     border: 0px;
-    padding: 0px;
+    padding: 0px 10px 0px 10px;
     position:relative;
 }
-img.my-css-logo:onclick {
-    width: 50%;
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-    position:relative;
+a.my-css-logo{
+   background-image: url("images/logo_heart.png");
+   background-repeat: no-repeat;
+   background-size: 40px;
+   min-width: 50px;
+   min-height: 50px;
+   background-position: 5px 5px;
+   -o-object-fit: contain; 
+   border: solid;
+   border: 25px;
 }
 /* End format the logo at the top, before the navbar */
 

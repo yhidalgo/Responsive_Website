@@ -35,7 +35,7 @@
                   <li class="my-js-navigationTab active" id="my-js-categoryTab"><a href="#">Categories</a></li>
                   <li class="my-js-navigationTab" id="my-js-animalsTab"><a href="#">Animals</a></li>
                   <li class="my-js-navigationTab" id="my-js-detailedAnimalTab"><a href="#">Details</a></li>
-                  <li class="my-js-navigationTab"><div><a href="http://yhidalgo.github.io/"><img class="my-css-logo" src="images/logo_heart.png" alt="My logo"/></a></div></li>
+                  <li class="my-js-navigationTab"><a href="http://yhidalgo.github.io/" class="my-css-logo"></a></li>
                </ul>
             </div> <!-- End un-collapsed navbar -->
          </div>
@@ -115,7 +115,7 @@
          <li class="my-js-categoryBreadcrumb">
             <a href="#"><span class="my-js-currentCategory"></span></a>
          </li>
-         <li id="my-js-animalDetailBreadcrumb" class="active"><a href="#myAnchor" rel="" id="anchor1" class="anchorLink">{{name}}</a></li>
+         <li id="my-js-animalDetailBreadcrumb" class="active"><a href="#myAnchor" rel="" id="anchor1" class="anchorLink my-js-smoothScrolling">{{name}}</a></li>
       </ol>
    
    </div>
@@ -137,6 +137,9 @@
       </div>
    </div>
    <div class="row">
+      <a name="myAnchor" id="myAnchor"></a>
+   </div>
+   <div class="row">
       <div class="col-xs-12 col-md-12 col-lg-12">
          <figure>
             <img class="my-css-thumbnail" src="{{image1}}" alt="Image of a{{ifRequiresN name}} {{toLowerCase name}}"/>
@@ -144,7 +147,6 @@
             </figurecaption>
          </figure>
       </div>
-      <a name="myAnchor" id="myAnchor"><strong>Where i want to go</strong></a>
       <div class="col-xs-12 col-md-12 col-lg-12">
          <figure>
             <img class="my-css-thumbnail" src="{{image2}}" alt="Another image of a{{ifRequiresN name}} {{toLowerCase name}}"/>

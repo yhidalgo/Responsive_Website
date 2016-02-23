@@ -41,7 +41,7 @@ $(document).ready(function(){
       });
       
       /* Smooth scrolling */
-      $('a').click(function(){
+      $('a.my-js-smoothScrolling').click(function(){
          $('html, body').animate({
             scrollTop: $( $(this).attr('href') ).offset().top
          }, 3000);
